@@ -1,0 +1,196 @@
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .project-item-box .project-overlay {
+        margin-top: 0px;
+        border: 15px solid #00071c;
+    }
+
+    .service-section-contant .section-contant .card {
+        background: transparent;
+        border: 2px solid #1e2632;
+        margin: 15px 0;
+    }
+
+    .nav__perfil .branding-title {
+        text-align: center;
+    }
+
+    .about-details-section .company-gallary {
+        margin-bottom: 20px;
+    }
+
+    .category-wise-project-items .project-images {
+        padding: 10px 0;
+    }
+
+    .main-section-wrapper .main-navbar-section .header {
+        height: 80px;
+    }
+
+    .footer-top .developed-title {
+        text-align: center;
+    }
+
+    .footer-top .copyright-title {
+        text-align: center;
+    }
+
+    .header {
+        width: 100%;
+        height: var(--header-height);
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 0 1.5rem;
+        background-color: #070d1f;
+        z-index: var(--z-fixed);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .main-navbar-section header.header img {
+        width: 200px;
+    }
+
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .project-item-box .project-overlay {
+        margin-top: 0px;
+        border: 15px solid #00071c;
+    }
+
+    .service-section-contant .section-contant .card {
+        background: transparent;
+        border: 2px solid #1e2632;
+        margin: 15px 0;
+    }
+
+    .nav__perfil .branding-title {
+        text-align: center;
+    }
+
+    .about-details-section .company-gallary {
+        margin-bottom: 20px;
+    }
+
+    .category-wise-project-items .project-images {
+        padding: 10px 0;
+    }
+
+    .main-section-wrapper .main-navbar-section .header {
+        height: 80px;
+    }
+
+    .footer-top .developed-title {
+        text-align: center;
+    }
+
+    .footer-top .copyright-title {
+        text-align: center;
+    }
+
+    .header {
+        width: 100%;
+        height: var(--header-height);
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 0 1.5rem;
+        background-color: #070d1fcf;
+        z-index: var(--z-fixed);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .main-navbar-section header.header img {
+        width: 200px;
+    }
+
+
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .project-item-box .project-overlay {
+        margin-top: 0px;
+        border: 15px solid #00071c;
+    }
+
+    .service-section-contant .section-contant .card {
+        background: transparent;
+        border: 2px solid #1e2632;
+        margin: 15px 0;
+    }
+
+    .nav__perfil .branding-title {
+        text-align: center;
+    }
+
+    .about-details-section .company-gallary {
+        margin-bottom: 20px;
+    }
+
+    .category-wise-project-items .project-images {
+        padding: 10px 0;
+    }
+
+    .main-section-wrapper .main-navbar-section .header {
+        height: 80px;
+    }
+
+    .footer-top .developed-title {
+        text-align: center;
+    }
+
+    .footer-top .copyright-title {
+        text-align: center;
+    }
+
+    .header {
+        width: 100%;
+        height: var(--header-height);
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 0 1.5rem;
+        background-color: #070d1fcf;
+        z-index: var(--z-fixed);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .main-navbar-section header.header img {
+        width: 200px;
+    }
+
+
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

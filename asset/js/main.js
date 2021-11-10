@@ -1,187 +1,185 @@
-/*===== MENU SHOW Y HIDDEN =====*/ 
-const navMenu = document.getElementById('nav-menu'),
-      toggleMenu = document.getElementById('nav-toggle'),
-      closeMenu = document.getElementById('nav-close')
+// main manu js
 
-/*SHOW*/ 
+const navMenu = document.getElementById('nav-menu'),
+	toggleMenu = document.getElementById('nav-toggle'),
+	closeMenu = document.getElementById('nav-close')
+
 toggleMenu.addEventListener('click', ()=>{
     navMenu.classList.toggle('show')
 })
 
-/*HIDDEN*/
 closeMenu.addEventListener('click', ()=>{
     navMenu.classList.remove('show')
 })
 
-/*===== ACTIVE AND REMOVE MENU =====*/
 const navLink = document.querySelectorAll('.nav__link');   
 
 function linkAction(){
-  /*Active link*/
-  navLink.forEach(n => n.classList.remove('active'));
-  this.classList.add('active');
-  
-  /*Remove menu mobile*/
-  navMenu.classList.remove('show')
+	navLink.forEach(n => n.classList.remove('active'));
+	this.classList.add('active');
+	navMenu.classList.remove('show')
 }
-navLink.forEach(n => n.addEventListener('click', linkAction));
 
+navLink.forEach(n => n.addEventListener('click', linkAction));
 
 // client logo slider seciton
 $(document).ready(function(){ 
-  $('.our-client-slider').slick({
-    dots: true,
-    infinite: false,
-    speed: 300,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  });
-
-
+  	$('.our-client-slider').slick({
+		dots: true,
+		infinite: false,
+		speed: 300,
+		autoplay: true,
+		slidesToShow: 6,
+		slidesToScroll: 1,
+			responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+				slidesToShow: 3,
+				slidesToScroll: 3,
+				infinite: true,
+				dots: true
+				}
+			},
+			{
+				breakpoint: 600,
+				settings: {
+				slidesToShow: 2,
+				slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1
+				}
+			}
+		]
+  	});
 });
 
 // main slider section
 
 var $slider = $(".slideshow .slider"),
-  maxItems = $(".item", $slider).length,
-  dragging = false,
-  tracking,
-  rightTracking;
+	maxItems = $(".item", $slider).length,
+	dragging = false,
+	tracking,
+	rightTracking;
 
 $sliderRight = $(".slideshow")
-  .clone()
-  .addClass("slideshow-right")
-  .appendTo($(".split-slideshow"));
+	.clone()
+	.addClass("slideshow-right")
+	.appendTo($(".split-slideshow"));
+	rightItems = $(".item", $sliderRight).toArray();
+	reverseItems = rightItems.reverse();
 
-rightItems = $(".item", $sliderRight).toArray();
-reverseItems = rightItems.reverse();
 $(".slider", $sliderRight).html("");
-for (i = 0; i < maxItems; i++) {
-  $(reverseItems[i]).appendTo($(".slider", $sliderRight));
+	for (i = 0; i < maxItems; i++) {
+	$(reverseItems[i]).appendTo($(".slider", $sliderRight));
 }
 
 $slider.addClass("slideshow-left");
-$(".slideshow-left")
-  .slick({
-    vertical: true,
-    verticalSwiping: true,
-    arrows: false,
-    infinite: true,
-    dots: true,
-    speed: 1000,
-    cssEase: "cubic-bezier(0.7, 0, 0.3, 1)"
-  })
-  .on("beforeChange", function (event, slick, currentSlide, nextSlide) {
-    if (
-      currentSlide > nextSlide &&
-      nextSlide == 0 &&
-      currentSlide == maxItems - 1
-    ) {
-      $(".slideshow-right .slider").slick("slickGoTo", -1);
-      $(".slideshow-text").slick("slickGoTo", maxItems);
-    } else if (
-      currentSlide < nextSlide &&
-      currentSlide == 0 &&
-      nextSlide == maxItems - 1
-    ) {
-      $(".slideshow-right .slider").slick("slickGoTo", maxItems);
-      $(".slideshow-text").slick("slickGoTo", -1);
-    } else {
-      $(".slideshow-right .slider").slick(
-        "slickGoTo",
-        maxItems - 1 - nextSlide
-      );
-      $(".slideshow-text").slick("slickGoTo", nextSlide);
-    }
-  })
-  .on("mousewheel", function (event) {
-    event.preventDefault();
-    if (event.deltaX > 0 || event.deltaY < 0) {
-      $(this).slick("slickNext");
-    } else if (event.deltaX < 0 || event.deltaY > 0) {
-      $(this).slick("slickPrev");
-    }
-  })
-  .on("mousedown touchstart", function () {
-    dragging = true;
-    tracking = $(".slick-track", $slider).css("transform");
-    tracking = parseInt(tracking.split(",")[5]);
-    rightTracking = $(".slideshow-right .slick-track").css("transform");
-    rightTracking = parseInt(rightTracking.split(",")[5]);
-  })
-  .on("mousemove touchmove", function () {
-    if (dragging) {
-      newTracking = $(".slideshow-left .slick-track").css("transform");
-      newTracking = parseInt(newTracking.split(",")[5]);
-      diffTracking = newTracking - tracking;
-      $(".slideshow-right .slick-track").css({
-        transform:
-          "matrix(1, 0, 0, 1, 0, " + (rightTracking - diffTracking) + ")"
-      });
-    }
-  })
-  .on("mouseleave touchend mouseup", function () {
-    dragging = false;
-  });
+	$(".slideshow-left")
+		.slick({
+			vertical: true,
+			verticalSwiping: true,
+			arrows: false,
+			infinite: true,
+			dots: true,
+			autoplay: true,
+			speed: 1000,
+			cssEase: "cubic-bezier(0.7, 0, 0.3, 1)"
+		})
+
+	.on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+			if (
+				currentSlide > nextSlide &&
+				nextSlide == 0 &&
+				currentSlide == maxItems - 1
+			) {
+				$(".slideshow-right .slider").slick("slickGoTo", -1);
+				$(".slideshow-text").slick("slickGoTo", maxItems);
+				} else if (
+				currentSlide < nextSlide &&
+				currentSlide == 0 &&
+				nextSlide == maxItems - 1
+			) {
+				$(".slideshow-right .slider").slick("slickGoTo", maxItems);
+				$(".slideshow-text").slick("slickGoTo", -1);
+				} else {
+				$(".slideshow-right .slider").slick(
+					"slickGoTo",
+					maxItems - 1 - nextSlide
+			);
+			$(".slideshow-text").slick("slickGoTo", nextSlide);
+		}
+	})
+
+	.on("mousewheel", function (event) {
+		event.preventDefault();
+			if (event.deltaX > 0 || event.deltaY < 0) {
+			$(this).slick("slickNext");
+			} else if (event.deltaX < 0 || event.deltaY > 0) {
+			$(this).slick("slickPrev");
+		}
+  	})
+
+  	.on("mousedown touchstart", function () {
+		dragging = true;
+		tracking = $(".slick-track", $slider).css("transform");
+		tracking = parseInt(tracking.split(",")[5]);
+		rightTracking = $(".slideshow-right .slick-track").css("transform");
+		rightTracking = parseInt(rightTracking.split(",")[5]);
+  	})
+
+  	.on("mousemove touchmove", function () {
+		if (dragging) {
+			newTracking = $(".slideshow-left .slick-track").css("transform");
+			newTracking = parseInt(newTracking.split(",")[5]);
+			diffTracking = newTracking - tracking;
+			$(".slideshow-right .slick-track").css({
+				transform:
+				"matrix(1, 0, 0, 1, 0, " + (rightTracking - diffTracking) + ")"
+			});
+		}
+	})
+
+  	.on("mouseleave touchend mouseup", function () {
+		dragging = false;
+	});
 
 $(".slideshow-right .slider").slick({
-  swipe: false,
-  vertical: true,
-  arrows: false,
-  infinite: true,
-  speed: 950,
-  cssEase: "cubic-bezier(0.7, 0, 0.3, 1)",
-  initialSlide: maxItems - 1
+	swipe: false,
+	vertical: true,
+	arrows: false,
+	infinite: true,
+	speed: 950,
+	cssEase: "cubic-bezier(0.7, 0, 0.3, 1)",
+	initialSlide: maxItems - 1
 });
+
 $(".slideshow-text").slick({
-  swipe: false,
-  vertical: true,
-  arrows: false,
-  infinite: true,
-  speed: 900,
-  cssEase: "cubic-bezier(0.7, 0, 0.3, 1)"
+	swipe: false,
+	vertical: true,
+	arrows: false,
+	infinite: true,
+	speed: 900,
+	cssEase: "cubic-bezier(0.7, 0, 0.3, 1)"
 });
 
 // about slider 
 
 (function($) {
-	
+
 	"use strict";
-	
-	
 	//Hide Loading Box (Preloader)
 	function handlePreloader() {
 		if($('.preloader').length){
 			$('.preloader').delay(200).fadeOut(500);
 		}
 	}
-	
-	
+
 	//Update Header Style and Scroll to Top
 	function headerStyle() {
 		if($('.main-header').length){
@@ -197,10 +195,8 @@ $(".slideshow-text").slick({
 			}
 		}
 	}
-	
 	headerStyle();
-	
-	
+
 	//Submenu Dropdown Toggle
 	if($('.main-header li.dropdown ul').length){
 		$('.main-header li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
@@ -234,7 +230,7 @@ $(".slideshow-text").slick({
 		});
 	}
 
-		//Hidden Sidebar
+	//Hidden Sidebar
 	if ($('.hidden-bar').length) {
 		$('.hidden-bar').mCustomScrollbar({
 		    theme:"dark"
@@ -245,11 +241,11 @@ $(".slideshow-text").slick({
 	if ($('.testimonial-carousel').length) {
 		$('.testimonial-carousel').owlCarousel({
 			animateOut: 'slideOutDown',
-		  animateIn: 'zoomIn',
+		  	animateIn: 'zoomIn',
 			loop:true,
 			margin:0,
 			nav:true,
-      fade: true,
+      		fade: true,
 			smartSpeed: 300,
 			autoplay: 7000,
 			navText: [ '<span class="arrow-left"></span>', '<span class="arrow-right"></span>' ],
@@ -270,15 +266,12 @@ $(".slideshow-text").slick({
 		});  		
 	}
 
-
 	//Fact Counter + Text Count
 	if($('.count-box').length){
 		$('.count-box').appear(function(){
-	
 			var $t = $(this),
 				n = $t.find(".count-text").attr("data-stop"),
 				r = parseInt($t.find(".count-text").attr("data-speed"), 10);
-				
 			if (!$t.hasClass("counted")) {
 				$t.addClass("counted");
 				$({
@@ -300,18 +293,14 @@ $(".slideshow-text").slick({
 		},{accY: 0});
 	}
 
-	
 	//Accordion Box
 	if($('.accordion-box').length){
 		$(".accordion-box").on('click', '.acc-btn', function() {
-			
 			var outerBox = $(this).parents('.accordion-box');
 			var target = $(this).parents('.accordion');
-			
 			if($(this).hasClass('active')!==true){
 				$(outerBox).find('.accordion .acc-btn').removeClass('active');
 			}
-			
 			if ($(this).next('.acc-content').is(':visible')){
 				return false;
 			}else{
@@ -324,13 +313,11 @@ $(".slideshow-text").slick({
 		});	
 	}
 	
-	
 	//Tabs Box
 	if($('.tabs-box').length){
 		$('.tabs-box .tab-buttons .tab-btn').on('click', function(e) {
 			e.preventDefault();
 			var target = $($(this).attr('data-tab'));
-			
 			if ($(target).is(':visible')){
 				return false;
 			}else{
@@ -344,15 +331,12 @@ $(".slideshow-text").slick({
 		});
 	}
 	
-
 	//Default Masonary
 	function defaultMasonry() {
 		if($('.masonry-items-container').length){
-	
 			var winDow = $(window);
 			// Needed variables
 			var $container=$('.masonry-items-container');
-	
 			$container.isotope({
 				itemSelector: '.masonry-item',
 				 masonry: {
@@ -363,9 +347,7 @@ $(".slideshow-text").slick({
 					easing:'linear'
 				}
 			});
-	
 			winDow.on('resize', function(){
-
 				$container.isotope({ 
 					itemSelector: '.masonry-item',
 					animationOptions: {
@@ -416,7 +398,6 @@ $(".slideshow-text").slick({
 		});
 	}
 	
-	
 	// Scroll to a Specific Div
 	if($('.scroll-to-target').length){
 		$(".scroll-to-target").on('click', function() {
@@ -425,62 +406,50 @@ $(".slideshow-text").slick({
 		   $('html, body').animate({
 			   scrollTop: $(target).offset().top
 			 }, 1500);
-	
 		});
 	}
 
 	if($('.paroller').length){
 		$('.paroller').paroller({
-			  factor: 0.05,            // multiplier for scrolling speed and offset, +- values for direction control  
-			  factorLg: 0.05,          // multiplier for scrolling speed and offset if window width is less than 1200px, +- values for direction control  
-			  type: 'foreground',     // background, foreground  
-			  direction: 'horizontal' // vertical, horizontal  
+			  factor: 0.05,            
+			  factorLg: 0.05,          
+			  type: 'foreground',    
+			  direction: 'horizontal'
 		});
 	}
 
-
 	if($('.timer').length){
-	   $(function(){
+	   	$(function(){
 		    $('[data-countdown]').each(function() {
-		   var $this = $(this), finalDate = $(this).data('countdown');
-		   $this.countdown(finalDate, function(event) {
-		     $this.html(event.strftime('%D days %H:%M:%S'));
-		   });
-		 });
+				var $this = $(this), finalDate = $(this).data('countdown');
+				$this.countdown(finalDate, function(event) {
+					$this.html(event.strftime('%D days %H:%M:%S'));
+				});
+		 	});
 		});
 
 	   $('.cs-countdown').countdown('').on('update.countdown', function(event) {
-		  var $this = $(this).html(event.strftime('<div class="count-col"><span>%m</span><h6>Months</h6></div> <div class="count-col"><span>%D</span><h6>days</h6></div> <div class="count-col"><span>%H</span><h6>Hours</h6></div> <div class="count-col"><span>%M</span><h6>Minutes</h6></div> <div class="count-col"><span>%S</span><h6>Seconds</h6></div>'));
+		  	var $this = $(this).html(event.strftime('<div class="count-col"><span>%m</span><h6>Months</h6></div> <div class="count-col"><span>%D</span><h6>days</h6></div> <div class="count-col"><span>%H</span><h6>Hours</h6></div> <div class="count-col"><span>%M</span><h6>Minutes</h6></div> <div class="count-col"><span>%S</span><h6>Seconds</h6></div>'));
 		});
 	}
-	
 	
 	// Elements Animation
 	if($('.wow').length){
 		var wow = new WOW(
 		  {
-			boxClass:     'wow',      // animated element css class (default is wow)
-			animateClass: 'animated', // animation css class (default is animated)
-			offset:       0,          // distance to the element when triggering the animation (default is 0)
-			mobile:       true,       // trigger animations on mobile devices (default is true)
-			live:         true       // act on asynchronously loaded content (default is true)
+			boxClass:     'wow',      
+			animateClass: 'animated', 
+			offset:       0,          
+			mobile:       true,       
+			live:         true      
 		  }
 		);
 		wow.init();
 	}
 
-
-/* ==========================================================================
-   When document is Scrollig, do
-   ========================================================================== */
-	
 	$(window).on('scroll', function() {
 		headerStyle();
 	});
-	
-/* ==========================================================================
-   When document is loading, do
-   ========================================================================== */
 	
 	$(window).on('load', function() {
 		handlePreloader();
@@ -488,3 +457,69 @@ $(".slideshow-text").slick({
 	});	
 
 })(window.jQuery);
+
+// video gallary section js 
+
+$('.venobox_custom').venobox({
+    framewidth : '100%',                        
+    frameheight: '100vh',                       
+    border     : '2px',                           
+    bgcolor    : 'var(--first-color)',                        
+    titleattr  : 'data-title',                      
+    numeratio  : true,                              
+    infinigall : true,                               
+    share      : ['facebook', 'twitter', 'download'] 
+});
+
+//project-gallary
+
+$('.project-gallary-slider').slick({
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	autoplay: true,
+	arrows: false,
+	fade: true,
+	asNavFor: '.project-gallary-slider-nav'
+});
+
+$('.project-gallary-slider-nav').slick({
+	slidesToShow: 4,
+	slidesToScroll: 1,
+	asNavFor: '.project-gallary-slider',
+	dots: true,
+	autoplay: true,
+	focusOnSelect: true
+});
+
+// slider animation 
+
+// srroll smooth 
+
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2500,
+    delay: 400,
+    // reset: true
+})
+
+// sr.reveal(`.main-navbar-section`)
+
+sr.reveal(` .project-contant`,{origin: 'left'})
+sr.reveal(` .project-images`,{origin: 'right'})
+sr.reveal(` .about-left-side-contant`,{origin: 'left'})
+sr.reveal(` .about-right-side-images`,{origin: 'right'})
+sr.reveal(` .contact-information-section`,{origin: 'left'})
+sr.reveal(` .contact-submit-form`,{origin: 'right'})
+sr.reveal(` .brands-items-box .brands-items`,{origin: 'left'})
+sr.reveal(` .brands-items-box .brand-left-side`,{origin: 'right'})
+sr.reveal(` .blog-information-section`,{origin: 'left'})
+sr.reveal(` .blog-sidebar-section`,{origin: 'right'})
+sr.reveal(` .project-gallary`,{origin: 'left'})
+sr.reveal(` .project-achievements`,{origin: 'right'})
+sr.reveal(` .company-gallary`,{origin: 'left'})
+sr.reveal(` .company-achievements`,{origin: 'right'})
+sr.reveal(`	.service-section-contant .section-contant`,{interval: 100})
+sr.reveal(`	.project-locaton-items`,{interval: 100})
+sr.reveal(`	.blog-information-box`,{interval: 100})
+sr.reveal(`	.our-clinet-section .section-contant`,{interval: 100})
