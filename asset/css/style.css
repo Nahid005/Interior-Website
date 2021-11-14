@@ -10,7 +10,7 @@ html {
     --header-height: 3rem;
 
     /*===== Colores =====*/
-    --first-color: #fd0606;
+    --first-color: #070d1f;
     --dark-color: #070D1F;
     --dark-color-alt: #282B3A;
     --white-color: #E6E7E9;
@@ -79,7 +79,7 @@ img {
     top: 0;
     left: 0;
     padding: 0 1.5rem;
-    background-color: #070d1fcf;
+    background-color: #b7c9cd;
     z-index: var(--z-fixed);
     display: -webkit-box;
     display: -ms-flexbox;
@@ -178,7 +178,7 @@ img {
 }
 
 .nav__link {
-    color: var(--white-color);
+    color: #070d1f;
 }
 
 .nav__social {
@@ -352,7 +352,7 @@ img {
 }
 
 .footer-top .developed-title span a {
-    color: #fd0606;
+    color: #b7c9cd;
     text-decoration: underline;
 }
 
@@ -389,11 +389,11 @@ img {
 }
 
 .contact-submit-form .btn {
-    background: #fd0606;
+    background: #b7c9cd;
     border: 0;
     padding: 8px 20px;
     cursor: pointer !important;
-    color: #fff;
+    color: #070d1f;
 }
 
 .contact-submit-form .btn i {
@@ -401,7 +401,7 @@ img {
 }
 
 .contact-information-section .section-title h4 {
-    color: #fd0606;
+    color: #b7c9cd;
     font-size: 20px;
 }
 
@@ -411,7 +411,7 @@ img {
 
 .contact-information-section .media i {
     font-size: 38px;
-    color: #fd0606;
+    color: #b7c9cd;
     margin-right: 20px;
 }
 
@@ -428,20 +428,20 @@ img {
 }
 
 .footer-bottom ul li:hover a i {
-    background: #fd0606;
-    color: #fff;
-    border-color: #fd0606;
+    background: #b7c9cd;
+    color: #ef442e;
+    border-color: #b7c9cd;
     transition: all .3s linear;
 }
 
 .contact-submit-form .form-group input:focus {
-    box-shadow: 0 0 0 0.2rem rgb(253 6 6 / 85%);
-    border-color: #fd0606;
+    box-shadow: 0 0 0 0.2rem rgb(183 201 205);
+    border-color: #b7c9cd;
 }
 
 .contact-submit-form .form-group textarea:focus {
-    box-shadow: 0 0 0 0.2rem rgb(253 6 6 / 87%);
-    border-color: #fd0606;
+    box-shadow: 0 0 0 0.2rem rgb(183 201 205);
+    border-color: #b7c9cd;
 }
 
 .contact-information-section .section-title {
@@ -494,7 +494,7 @@ img {
 }
 
 .project-item-box .project-overlay {
-    margin-top: -80px;
+    /* margin-top: -80px; */
     border: 15px solid #00071c;
 }
 
@@ -898,7 +898,7 @@ img {
     font-size: 50px;
     text-align: center;
     margin-bottom: 30px;
-    color: #fd0606;
+    color: #b7c9cd;
 }
 
 .service-section-contant .section-contant .card {
@@ -919,7 +919,7 @@ img {
 }
 
 .service-section-contant .section-contant h5 {
-    color: #fd0606;
+    color: #b7c9cd;
 }
 
 .service-section-contant .section-contant .card-body {
@@ -933,7 +933,7 @@ img {
 }
 
 .project-item-box .project-contant h4 {
-    color: #fd0606;
+    color: #b7c9cd;
 }
 
 .project-item-box .project-contant p {
@@ -943,18 +943,18 @@ img {
 }
 
 .service-section-contant .section-contant:hover {
-    background: #fd0606;
+    background: #b7c9cd;
     transition: all .3s linear;
     border-radius: 4px;
 }
 
 .service-section-contant .section-contant:hover h5 {
-    color: #fff;
+    color: #333;
     transition: all .3s linear;
 }
 
 .service-section-contant .section-contant:hover p {
-    color: #fff;
+    color: #333;
     transition: all .3s linear;
 }
 
@@ -987,12 +987,12 @@ img {
 }
 
 .project-item-box .project-images-top .project-images-contant h3 span {
-    color: #fd0606;
+    color: #b7c9cd;
     font-size: 50px;
 }
 
 .project-images .project-images-contant h3 span {
-    color: #fd0606;
+    color: #b7c9cd;
     font-size: 50px;
 }
 
@@ -1048,7 +1048,7 @@ img {
     content: '';
     position: absolute;
     width: 50%;
-    background: rgb(253 6 6 / 88%);
+    background: rgb(0 0 0 / 75%);
     height: 100%;
     top: 0;
     left: 0;
@@ -1064,7 +1064,7 @@ img {
     border: 0 solid transparent;
     border-bottom-width: 284px;
     border-top-width: 0px;
-    border-left: 200px solid rgb(253 6 6 / 88%);
+    border-left: 200px solid rgb(2 2 2 / 74%);
     top: 0;
     left: 50%;
     z-index: 0;
@@ -1096,7 +1096,7 @@ img {
 }
 
 .category-wise-project .project-location .project-brand-color {
-    background: #fd0606;
+    /* background: #b7c9cd; */
 }
 
 .category-wise-project .project-location {
@@ -1150,7 +1150,7 @@ img {
 
 .video-play-icon:hover i {
     font-size: 100px;
-    color: rgb(253 6 6);
+    color: rgb(183 201 205);
     transition: all .3s linear;
 }
 
@@ -1168,11 +1168,11 @@ img {
 }
 
 .category-wise-project-items .project-contant h4 {
-    color: #fd0606;
+    color: #b7c9cd;
 }
 
 .category-wise-project-items .project-brand-color {
-    background: #fd0606;
+    background: #b7c9cd;
     height: 100%;
 }
 
@@ -1214,7 +1214,7 @@ img {
 }
 
 .project-achievements h4 {
-    color: #fd0606;
+    color: #b7c9cd;
 }
 
 .project-achievements p {
@@ -1231,7 +1231,7 @@ img {
 }
 
 .project-details-section .project-ambition .section-title p {
-    color: #fd0606;
+    color: #b7c9cd;
 }
 
 .project-details-section .project-ambition p {
@@ -1302,7 +1302,7 @@ img {
     font-size: 16px;
     border: 2px solid #1e2632;
     padding: 8px 15px;
-    color: #fd0606;
+    color: #b7c9cd;
 }
 
 .blog-information-box .blog-contant {
@@ -1356,7 +1356,7 @@ img {
 }
 
 .blog-sidebar-section .blog-list ul li h5 {
-    color: #fd0606;
+    color: #b7c9cd;
 }
 
 .blog-sidebar-section .section-title {
@@ -1446,9 +1446,9 @@ a.see-more {
 
 .brands-items-box .more-btn .btn {
     font-size: 16px;
-    background: #fd0606;
+    background: #b7c9cd;
     padding: 8px 15px;
-    color: #fff;
+    color: #070d1f;
 }
 
 .brands-items-box .more-btn {
@@ -1471,7 +1471,7 @@ a.see-more {
 }
 
 .blog-reading-section .blog-publish-date p a {
-    color: #fd0606;
+    color: #b7c9cd;
 }
 
 .nav__menu ul li a:hover {
@@ -1484,5 +1484,86 @@ a.see-more {
 
 .breadcrumb-section .breadcrumb-section-overlay .breadcrumb .breadcrumb-item.active {
     background: transparent;
+    color: #ef442d;
+}
+
+.service-section-contant .section-contant:hover i {
+    color: #ef442e;
+}
+
+.about-section-contant .section-title h5 {
+    color: #b7c9cd;
+}
+
+.project-discription .section-title h4 {
+    color: #b7c9cd;
+}
+
+.project-details-section .project-gallary img {
+    width: 100%;
+}
+
+.category-wise-project-items .project-brand-color p {
     color: #070d1f;
 }
+
+.category-wise-project-items .project-brand-color h4 {
+    color: #070d1f;
+}
+
+.testimonial-item-box .client-img img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.testimonial-sections {
+    background: #070d1f;
+    padding-bottom: 40px;
+}
+
+.testimonial-contant .client-information {
+    text-align: right;
+    color: #b7c9cd;
+    padding-top: 10px;
+    border-top: 2px solid #1e2632;
+}
+
+.testimonial-item-box .client-img {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.testimonial-contant p {
+    text-align: center;
+    color: #fff;
+}
+
+.testimonial-contant .client-information p {
+    text-align: right;
+    margin: 0;
+}
+
+/* scroll btn top to bottom */
+
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+  
+  #myBtn:hover {
+    background-color: #555;
+  }
