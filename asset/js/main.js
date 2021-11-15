@@ -26,7 +26,7 @@ navLink.forEach(n => n.addEventListener('click', linkAction));
 $(document).ready(function(){ 
   	$('.our-client-slider').slick({
 		dots: true,
-		infinite: false,
+		infinite: true,
 		speed: 300,
 		autoplay: true,
 		slidesToShow: 6,
@@ -58,9 +58,77 @@ $(document).ready(function(){
 		]
   	});
 
+	$('.service-slider-active').slick({
+		dots: true,
+		infinite: true,
+		speed: 3000,
+		autoplay: true,
+		slidesToShow: 4,
+		slidesToScroll: 1,
+			responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+				slidesToShow: 3,
+				slidesToScroll: 3,
+				infinite: true,
+				dots: true
+				}
+			},
+			{
+				breakpoint: 600,
+				settings: {
+				slidesToShow: 1,
+				slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1
+				}
+			}
+		]
+  	});
+
+	$('.project-location-slider').slick({
+		dots: true,
+		infinite: true,
+		speed: 3000,
+		autoplay: true,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+			responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+				slidesToShow: 3,
+				slidesToScroll: 3,
+				infinite: true,
+				dots: true
+				}
+			},
+			{
+				breakpoint: 600,
+				settings: {
+				slidesToShow: 1,
+				slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1
+				}
+			}
+		]
+  	});
+
 	  $('.testimonial-slider').slick({
 		dots: true,
-		infinite: false,
+		infinite: true,
 		speed: 300,
 		autoplay: true,
 		slidesToShow: 1,
@@ -68,114 +136,6 @@ $(document).ready(function(){
   	});
 });
 
-// main slider section
-
-var $slider = $(".slideshow .slider"),
-	maxItems = $(".item", $slider).length,
-	dragging = false,
-	tracking,
-	rightTracking;
-
-$sliderRight = $(".slideshow")
-	.clone()
-	.addClass("slideshow-right")
-	.appendTo($(".split-slideshow"));
-	rightItems = $(".item", $sliderRight).toArray();
-	reverseItems = rightItems.reverse();
-
-$(".slider", $sliderRight).html("");
-	for (i = 0; i < maxItems; i++) {
-	$(reverseItems[i]).appendTo($(".slider", $sliderRight));
-}
-
-$slider.addClass("slideshow-left");
-	$(".slideshow-left")
-		.slick({
-			vertical: true,
-			verticalSwiping: true,
-			arrows: false,
-			infinite: true,
-			dots: true,
-			autoplay: true,
-			speed: 1000,
-			cssEase: "cubic-bezier(0.7, 0, 0.3, 1)"
-		})
-
-	.on("beforeChange", function (event, slick, currentSlide, nextSlide) {
-			if (
-				currentSlide > nextSlide &&
-				nextSlide == 0 &&
-				currentSlide == maxItems - 1
-			) {
-				$(".slideshow-right .slider").slick("slickGoTo", -1);
-				$(".slideshow-text").slick("slickGoTo", maxItems);
-				} else if (
-				currentSlide < nextSlide &&
-				currentSlide == 0 &&
-				nextSlide == maxItems - 1
-			) {
-				$(".slideshow-right .slider").slick("slickGoTo", maxItems);
-				$(".slideshow-text").slick("slickGoTo", -1);
-				} else {
-				$(".slideshow-right .slider").slick(
-					"slickGoTo",
-					maxItems - 1 - nextSlide
-			);
-			$(".slideshow-text").slick("slickGoTo", nextSlide);
-		}
-	})
-
-	.on("mousewheel", function (event) {
-		event.preventDefault();
-			if (event.deltaX > 0 || event.deltaY < 0) {
-			$(this).slick("slickNext");
-			} else if (event.deltaX < 0 || event.deltaY > 0) {
-			$(this).slick("slickPrev");
-		}
-  	})
-
-  	.on("mousedown touchstart", function () {
-		dragging = true;
-		tracking = $(".slick-track", $slider).css("transform");
-		tracking = parseInt(tracking.split(",")[5]);
-		rightTracking = $(".slideshow-right .slick-track").css("transform");
-		rightTracking = parseInt(rightTracking.split(",")[5]);
-  	})
-
-  	.on("mousemove touchmove", function () {
-		if (dragging) {
-			newTracking = $(".slideshow-left .slick-track").css("transform");
-			newTracking = parseInt(newTracking.split(",")[5]);
-			diffTracking = newTracking - tracking;
-			$(".slideshow-right .slick-track").css({
-				transform:
-				"matrix(1, 0, 0, 1, 0, " + (rightTracking - diffTracking) + ")"
-			});
-		}
-	})
-
-  	.on("mouseleave touchend mouseup", function () {
-		dragging = false;
-	});
-
-$(".slideshow-right .slider").slick({
-	swipe: false,
-	vertical: true,
-	arrows: false,
-	infinite: true,
-	speed: 950,
-	cssEase: "cubic-bezier(0.7, 0, 0.3, 1)",
-	initialSlide: maxItems - 1
-});
-
-$(".slideshow-text").slick({
-	swipe: false,
-	vertical: true,
-	arrows: false,
-	infinite: true,
-	speed: 900,
-	cssEase: "cubic-bezier(0.7, 0, 0.3, 1)"
-});
 
 // about slider 
 
@@ -502,6 +462,201 @@ $('.project-gallary-slider-nav').slick({
 
 // slider animation 
 
+(function() {
+
+    var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
+
+    // Main
+    initHeader();
+    initAnimation();
+    addListeners();
+
+    function initHeader() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        target = {x: width/2, y: height/2};
+
+        largeHeader = document.getElementById('large-header');
+        largeHeader.style.height = height+'px';
+
+        canvas = document.getElementById('demo-canvas');
+        canvas.width = width;
+        canvas.height = height;
+        ctx = canvas.getContext('2d');
+
+        // create points
+        points = [];
+        for(var x = 0; x < width; x = x + width/20) {
+            for(var y = 0; y < height; y = y + height/20) {
+                var px = x + Math.random()*width/20;
+                var py = y + Math.random()*height/20;
+                var p = {x: px, originX: px, y: py, originY: py };
+                points.push(p);
+            }
+        }
+
+        // for each point find the 5 closest points
+        for(var i = 0; i < points.length; i++) {
+            var closest = [];
+            var p1 = points[i];
+            for(var j = 0; j < points.length; j++) {
+                var p2 = points[j]
+                if(!(p1 == p2)) {
+                    var placed = false;
+                    for(var k = 0; k < 5; k++) {
+                        if(!placed) {
+                            if(closest[k] == undefined) {
+                                closest[k] = p2;
+                                placed = true;
+                            }
+                        }
+                    }
+
+                    for(var k = 0; k < 5; k++) {
+                        if(!placed) {
+                            if(getDistance(p1, p2) < getDistance(p1, closest[k])) {
+                                closest[k] = p2;
+                                placed = true;
+                            }
+                        }
+                    }
+                }
+            }
+            p1.closest = closest;
+        }
+
+        // assign a circle to each point
+        for(var i in points) {
+            var c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.3)');
+            points[i].circle = c;
+        }
+    }
+
+    // Event handling
+    function addListeners() {
+        if(!('ontouchstart' in window)) {
+            window.addEventListener('mousemove', mouseMove);
+        }
+        window.addEventListener('scroll', scrollCheck);
+        window.addEventListener('resize', resize);
+    }
+
+    function mouseMove(e) {
+        var posx = posy = 0;
+        if (e.pageX || e.pageY) {
+            posx = e.pageX;
+            posy = e.pageY;
+        }
+        else if (e.clientX || e.clientY)    {
+            posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+            posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+        }
+        target.x = posx;
+        target.y = posy;
+    }
+
+    function scrollCheck() {
+        if(document.body.scrollTop > height) animateHeader = false;
+        else animateHeader = true;
+    }
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        largeHeader.style.height = height+'px';
+        canvas.width = width;
+        canvas.height = height;
+    }
+
+    // animation
+    function initAnimation() {
+        animate();
+        for(var i in points) {
+            shiftPoint(points[i]);
+        }
+    }
+
+    function animate() {
+        if(animateHeader) {
+            ctx.clearRect(0,0,width,height);
+            for(var i in points) {
+                // detect points in range
+                if(Math.abs(getDistance(target, points[i])) < 4000) {
+                    points[i].active = 0.3;
+                    points[i].circle.active = 0.6;
+                } else if(Math.abs(getDistance(target, points[i])) < 20000) {
+                    points[i].active = 0.1;
+                    points[i].circle.active = 0.3;
+                } else if(Math.abs(getDistance(target, points[i])) < 40000) {
+                    points[i].active = 0.02;
+                    points[i].circle.active = 0.1;
+                } else {
+                    points[i].active = 0;
+                    points[i].circle.active = 0;
+                }
+
+                drawLines(points[i]);
+                points[i].circle.draw();
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    function shiftPoint(p) {
+        TweenLite.to(p, 1+1*Math.random(), {x:p.originX-50+Math.random()*100,
+            y: p.originY-50+Math.random()*100, ease:Circ.easeInOut,
+            onComplete: function() {
+                shiftPoint(p);
+            }});
+    }
+
+    // Canvas manipulation
+    function drawLines(p) {
+        if(!p.active) return;
+        for(var i in p.closest) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p.closest[i].x, p.closest[i].y);
+            ctx.strokeStyle = 'rgba(156,217,249,'+ p.active+')';
+            ctx.stroke();
+        }
+    }
+
+    function Circle(pos,rad,color) {
+        var _this = this;
+
+        // constructor
+        (function() {
+            _this.pos = pos || null;
+            _this.radius = rad || null;
+            _this.color = color || null;
+        })();
+
+        this.draw = function() {
+            if(!_this.active) return;
+            ctx.beginPath();
+            ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
+            ctx.fillStyle = 'rgba(156,217,249,'+ _this.active+')';
+            ctx.fill();
+        };
+    }
+
+    // Util
+    function getDistance(p1, p2) {
+        return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
+    }
+    
+})();
+
+
+
+
+
+
+
+
+
+
 // srroll smooth 
 
 const sr = ScrollReveal({
@@ -546,7 +701,7 @@ sr.reveal(` .project-gallary`,{origin: 'left'})
 sr.reveal(` .project-achievements`,{origin: 'right'})
 sr.reveal(` .company-gallary`,{origin: 'left'})
 sr.reveal(` .company-achievements`,{origin: 'right'})
-sr.reveal(`	.service-section-contant .section-contant`,{interval: 100})
-sr.reveal(`	.project-locaton-items`,{interval: 100})
+sr.reveal(`	.service-section-contant`,{interval: 100})
+sr.reveal(`	.project-location`,{interval: 100})
 sr.reveal(`	.blog-information-box`,{interval: 100})
 sr.reveal(`	.our-clinet-section .section-contant`,{interval: 100})
