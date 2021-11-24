@@ -1,0 +1,7 @@
+1. slider animation  shape change to triangle 
+2. service page shape change to circle
+3. our video gallery left side contant and right side video 
+4. view all btn add 
+5. client list hover and pop up slider 
+6. our project section border with icon use 
+7. background images remove 
