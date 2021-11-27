@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+        <link rel="icon" type="image/x-icon" href="asset/images/logo.png">
         <link rel="stylesheet" href="asset/css/slick.css">
         <link rel="stylesheet" href="asset/css/slick-theme.css"/>
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -20,10 +21,10 @@
 
         <div class="main-section-wrapper">
             <!-- Required meta tags -->
-            <div class="main-navbar-section" id="main-navbar">
-                <header class="header">
+            <div class="main-navbar-section">
+                <header class="header" id="nav_bar">
                     <a href="/index.html" class="header__logo">
-                        <img src="asset/images/logo.png" alt="">
+                        <img src="asset/images/logo-main.png" alt="">
                     </a>
                     <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
                     <nav class="nav" id="nav-menu">
@@ -34,7 +35,7 @@
                             <div class="nav__perfil">
                                 <div class="nav__img">
                                     <a href="index.html">
-                                        <img src="asset/images/logo.png" alt="">
+                                        <img src="asset/images/logo-main.png" alt="">
                                     </a>
                                 </div>
                                 
@@ -49,7 +50,7 @@
                                     <li class="nav__item"><a href="#about-section" class="nav__link">About</a></li>
                                     <li class="nav__item"><a href="#our-project" class="nav__link">Projects</a></li>
                                     <li class="nav__item"><a href="#our-service" class="nav__link">Services</a></li>
-                                    <li class="nav__item"><a href="#" class="nav__link">Brands</a></li>
+                                    <li class="nav__item"><a href="#our-brands" class="nav__link">Brands</a></li>
                                     <li class="nav__item"><a href="#our-client" class="nav__link">Clients</a></li>
                                     <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
                                     <li class="nav__item"><a href="#contant-us" class="nav__link">Contact Us</a></li>
@@ -67,15 +68,17 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="section-title">
-                                    <h2>CONSTRUCTION</h2>
+                                <div class="breadcrumb-items">
+                                    <div class="section-title">
+                                        <h2>CONSTRUCTION</h2>
+                                    </div>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                          <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                          <li class="breadcrumb-item active" aria-current="page">services</li>
+                                        </ol>
+                                    </nav>
                                 </div>
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                      <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                      <li class="breadcrumb-item active" aria-current="page">services</li>
-                                    </ol>
-                                </nav>
                             </div>
                         </div>
                     </div>
@@ -84,49 +87,51 @@
         </div>
 
         <div class="about-details-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="company-gallary">
-                            <img src="asset/images/project-img.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="company-achievements">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis</p>
-                            <ul>
-                                <li> <span> 01. </span> Royal Thai Embassy Complex completed & handed on November, 2006. </li>
-                                <li> <span> 02. </span> Canadian High Commission has been completed and handed over on 9th October, 2009. </li>
-                                <li> <span> 03. </span> Indian High Commission Complex (Completed PHASE-I works during agreement period). </li>
-                                <li> <span> 04. </span> British High Commission, a High-Profile Office Building for DFID, Bangladesh : 3-Storied 
-                                Intelligent Building (Shapla Arch) has been completed and handed over on 07 September, 2013. </li>
-                                <li> <span> 05. </span> Switzerland Embassy Dhaka at Bay’s Edgewater, Gulshan-2, Dhaka has been completed and 
-                                handed over on 30 August, 2013. </li>
-                                <li> <span> 06. </span> US Embassy Dhaka ID Renovation works has been completed and handover on 25 July, 2014. </li>
-                                <li> <span> 07. </span> Completed NORDIC Embassy Dhaka Interior Fit-out works at Bay’s Edgewater, Gulshan-2, Dhaka. </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="company-ambition">
+            <div class="about-details-overlay">
+                <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="section-title">
-                                <h5>At present, we are engaged with the construction of :</h5>
+                        <div class="col-md-7">
+                            <div class="company-gallary">
+                                <img src="asset/images/project-img.jpg" alt="">
                             </div>
-                            <div class="section-contant">
-                                <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-                                </p>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="company-achievements">
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis</p>
+                                <ul>
+                                    <li> <span> 01. </span> Royal Thai Embassy Complex completed & handed on November, 2006. </li>
+                                    <li> <span> 02. </span> Canadian High Commission has been completed and handed over on 9th October, 2009. </li>
+                                    <li> <span> 03. </span> Indian High Commission Complex (Completed PHASE-I works during agreement period). </li>
+                                    <li> <span> 04. </span> British High Commission, a High-Profile Office Building for DFID, Bangladesh : 3-Storied 
+                                    Intelligent Building (Shapla Arch) has been completed and handed over on 07 September, 2013. </li>
+                                    <li> <span> 05. </span> Switzerland Embassy Dhaka at Bay’s Edgewater, Gulshan-2, Dhaka has been completed and 
+                                    handed over on 30 August, 2013. </li>
+                                    <li> <span> 06. </span> US Embassy Dhaka ID Renovation works has been completed and handover on 25 July, 2014. </li>
+                                    <li> <span> 07. </span> Completed NORDIC Embassy Dhaka Interior Fit-out works at Bay’s Edgewater, Gulshan-2, Dhaka. </li>
+                                </ul>
                             </div>
-                            <div class="section-title">
-                                <h5>In addition to these, Archipark has the experience of high end construction and interior decoration works of:</h5>
-                            </div>
-                            <div class="section-contant">
-                                <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis 
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-                                </p>
+                        </div>
+                    </div>
+                    <div class="company-ambition">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h5>At present, we are engaged with the construction of :</h5>
+                                </div>
+                                <div class="section-contant">
+                                    <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+                                    </p>
+                                </div>
+                                <div class="section-title">
+                                    <h5>In addition to these, Archipark has the experience of high end construction and interior decoration works of:</h5>
+                                </div>
+                                <div class="section-contant">
+                                    <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis 
+                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -212,6 +217,10 @@
 
 
 
+        <div class="scroll-btn-top-bottom">
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="ri-arrow-up-s-line"></i></button>
+        </div>
+        
         <div class="contact-us-section" id="contant-us">
             <div class="contact-us-background" style="background-image: url('asset/images/contant-us.webp');">
                 <div class="backgorund-img-overlay">
@@ -304,7 +313,9 @@
                                         <div class="form-group">
                                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
-                                        <button type="submit" class="btn"> Sign in <i class="ri-send-plane-fill"></i> </button>
+                                        <div class="more-btn">
+                                            <a href="#" id="btn" type="submit" class="btn btn-sm"> Sign in <i class="ri-send-plane-fill"></i> </a>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
